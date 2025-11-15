@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login.dart'; // استدعاء صفحة اللوق إن
 
 void main() {
   runApp(MyApp());
@@ -14,12 +15,19 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Roboto',
       ),
-      home: StoreFormPage(), // الصفحة الرئيسية فورم
+      home: const LoginPage(), // الصفحة الأولى هي صفحة اللوق إن
     );
   }
 }
 
+// -----------------------------------
+// صفحة الفورم (StoreFormPage)
+// يمكنك تعديلها كما تريد
+// -----------------------------------
+
 class StoreFormPage extends StatefulWidget {
+  const StoreFormPage({super.key});
+
   @override
   _StoreFormPageState createState() => _StoreFormPageState();
 }
@@ -43,11 +51,11 @@ class _StoreFormPageState extends State<StoreFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("إضافة بيانات المتجر"),
+        title: const Text("إضافة بيانات المتجر"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
@@ -55,113 +63,113 @@ class _StoreFormPageState extends State<StoreFormPage> {
             children: [
 
               // Store Name
-              Text("اسم المتجر:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const Text("اسم المتجر:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: storeNameController,
-                decoration: InputDecoration(hintText: "أدخل اسم المتجر"),
+                decoration: const InputDecoration(hintText: "أدخل اسم المتجر"),
                 validator: (value) => (value == null || value.isEmpty) ? "هذا الحقل مطلوب" : null,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Store Description
-              Text("وصف المتجر:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const Text("وصف المتجر:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: storeDescController,
                 minLines: 3,
                 maxLines: 5,
-                decoration: InputDecoration(hintText: "أدخل وصفًا مختصرًا عن المتجر"),
+                decoration: const InputDecoration(hintText: "أدخل وصفًا مختصرًا عن المتجر"),
                 validator: (value) => (value == null || value.isEmpty) ? "هذا الحقل مطلوب" : null,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Owner Name
-              Text("اسم المالك:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const Text("اسم المالك:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: ownerNameController,
-                decoration: InputDecoration(hintText: "اسم مالك المتجر"),
+                decoration: const InputDecoration(hintText: "اسم مالك المتجر"),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Phone
-              Text("رقم التواصل:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const Text("رقم التواصل:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: phoneController,
                 keyboardType: TextInputType.phone,
-                decoration: InputDecoration(hintText: "مثال: 05xxxxxxxx"),
+                decoration: const InputDecoration(hintText: "مثال: 05xxxxxxxx"),
                 validator: (value) => (value == null || value.isEmpty) ? "يرجى إدخال رقم التواصل" : null,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Email
-              Text("البريد الإلكتروني:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const Text("البريد الإلكتروني:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: emailController,
                 keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(hintText: "example@email.com"),
+                decoration: const InputDecoration(hintText: "example@email.com"),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Location
-              Text("الموقع:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const Text("الموقع:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: locationController,
-                decoration: InputDecoration(hintText: "أدخل موقع المتجر (رابط خرائط أو نص)"),
+                decoration: const InputDecoration(hintText: "أدخل موقع المتجر (رابط خرائط أو نص)"),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Open Time
-              Text("وقت الافتتاح:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const Text("وقت الافتتاح:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: openTimeController,
-                decoration: InputDecoration(hintText: "مثال: 8:00 AM"),
+                decoration: const InputDecoration(hintText: "مثال: 8:00 AM"),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Close Time
-              Text("وقت الإغلاق:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const Text("وقت الإغلاق:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: closeTimeController,
-                decoration: InputDecoration(hintText: "مثال: 11:00 PM"),
+                decoration: const InputDecoration(hintText: "مثال: 11:00 PM"),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Category
-              Text("نوع المتجر / التصنيف:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const Text("نوع المتجر / التصنيف:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: categoryController,
-                decoration: InputDecoration(hintText: "مثال: مقهى / ملابس / إلكترونيات"),
+                decoration: const InputDecoration(hintText: "مثال: مقهى / ملابس / إلكترونيات"),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Notes
-              Text("ملاحظات إضافية:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const Text("ملاحظات إضافية:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: notesController,
                 minLines: 2,
                 maxLines: 4,
-                decoration: InputDecoration(hintText: "أدخل أي ملاحظات تود إضافتها"),
+                decoration: const InputDecoration(hintText: "أدخل أي ملاحظات تود إضافتها"),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
               // Submit Button
               Center(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                    textStyle: TextStyle(fontSize: 18),
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    textStyle: const TextStyle(fontSize: 18),
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("تم حفظ البيانات بنجاح")),
+                        const SnackBar(content: Text("تم حفظ البيانات بنجاح")),
                       );
                     }
                   },
-                  child: Text("حفظ البيانات"),
+                  child: const Text("حفظ البيانات"),
                 ),
               ),
 
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
             ],
           ),
         ),
