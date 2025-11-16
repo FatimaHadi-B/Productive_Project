@@ -169,7 +169,26 @@ class _StoreFormPageState extends State<StoreFormPage> {
                 ),
               ),
 
+
+              Center(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    textStyle: const TextStyle(fontSize: 18),
+                  ),
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("تم نجاح الإنشاء")),
+                      );
+                    }
+                  },
+                  child: const Text("تم الانشاء"),
+                ),
+              ),
+
               const SizedBox(height: 40),
+
             ],
           ),
         ),
